@@ -3,4 +3,8 @@
 export interface Example {
   id: number;
   title: string;
+}export interface CardProps {
+  title: string;
+  content: string;
 }
+
