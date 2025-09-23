@@ -1,21 +1,22 @@
-import Head from 'next/head';
-import Header from '../components/layout/Header';
+import Head from "next/head";
+import Header from "@/components/layout/Header";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Head>
-        <title>Welcome to ALX Project</title>
+        <title>ALX Project 2</title>
+        <meta name="description" content="Next.js + TypeScript + Tailwind setup project" />
       </Head>
       <Header />
-      <main className="p-6">
-        <h2 className="text-2xl font-bold text-gray-800">
-          Welcome to the Next.js Project Setup and Basics!
-        </h2>
-        <p className="mt-4 text-gray-600">
-          This project was scaffolded using Next.js, TypeScript, and Tailwind CSS.
+      <main className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
+        <h1 className="text-4xl font-bold text-blue-600">
+           Welcome to ALX Project 2
+        </h1>
+        <p className="mt-4 text-lg text-gray-700">
+          Next.js + TypeScript + Tailwind CSS are ready!
         </p>
       </main>
-    </div>
+    </>
   );
 }
