@@ -1,13 +1,21 @@
-import React from 'react';
-import { UserProps } from '../../interfaces';
+// components/common/UserCard.tsx
+import React from "react";
 
-const UserCard: React.FC<UserProps> = ({ name, email, address }) => {
+interface UserCardProps {
+  name: string;
+  email: string;
+  address: string;
+}
+
+const UserCard: React.FC<UserCardProps> = ({ name, email, address }) => {
   return (
-    <div className="border p-4 rounded shadow-md bg-white">
-      <h2 className="text-xl font-semibold text-green-700">{name}</h2>
-      <p className="text-gray-700">📧 {email}</p>
-      <p className="text-gray-600 mt-2">
-        🏠 {address.street}, {address.suite}, {address.city}, {address.zipcode}
+    <div className="border rounded-lg p-4 shadow-sm bg-white max-w-sm">
+      <h2 className="text-xl font-semibold mb-2">{name}</h2>
+      <p className="text-gray-600 mb-1">
+        <strong>Email:</strong> {email}
+      </p>
+      <p className="text-gray-600">
+        <strong>Address:</strong> {address}
       </p>
     </div>
   );

@@ -1,44 +1,37 @@
-// Post interface for posts.tsx and PostCard
-export interface Post {
-  userId: number;
-  id: number;
+// interfaces/index.ts
+
+export interface CardProps {
   title: string;
-  body: string;
+  content: string;
 }
 
-// Address sub-interface for User
-export interface Address {
-  street: string;
-  suite: string;
-  city: string;
-  zipcode: string;
-  geo: {
-    lat: string;
-    lng: string;
-  };
+export interface ButtonProps {
+  size?: "small" | "medium" | "large";
+  shape?: "rounded-sm" | "rounded-md" | "rounded-full";
+  onClick?: () => void;
+  children: React.ReactNode;
+  type?: "button" | "submit" | "reset";
+  className?: string;
 }
 
-// Company sub-interface for User
-export interface Company {
-  name: string;
-  catchPhrase: string;
-  bs: string;
+
+// interfaces/index.ts
+
+export interface PostProps {
+  title: string;
+  content: string;
+  userId: number;
+  id?: number; // optional, in case you want to store post ID
 }
 
-// User interface for users.tsx and UserCard
-export interface User {
+
+// interfaces/index.ts
+ ["address"]
+export interface UserProps {
   id: number;
   name: string;
-  username: string;
   email: string;
-  address: Address;
-  phone: string;
-  website: string;
-  company: Company;
-}
-
-// Optional example interface for general purposes
-export interface Example {
-  id: number;
-  name: string;
+  username?: string; // optional
+  avatarUrl?: string; // optional
+  createdAt?: string; // optional, ISO date string
 }

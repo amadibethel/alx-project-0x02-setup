@@ -1,24 +1,39 @@
-import React from 'react';
-import { ButtonProps } from '../../interfaces';
+["import { type ButtonProps }"]
+
+
+// components/common/Button.tsx
+import React from "react";
+import clsx from "clsx";
+import { type ButtonProps } from "@/interfaces";
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  size?: "small" | "medium" | "large";
+  shape?: "rounded-sm" | "rounded-md" | "rounded-full";
+}
+
+const sizeClasses: Record<NonNullable<ButtonProps["size"]>, string> = {
+  small: "px-3 py-1 text-sm",
+  medium: "px-4 py-2 text-base",
+  large: "px-6 py-3 text-lg",
+};
 
 const Button: React.FC<ButtonProps> = ({
-  label,
-  size = 'medium',
-  shape = 'rounded-md',
-  onClick,
+  size = "medium",
+  shape = "rounded-md",
+  className,
+  children,
+  ...props
 }) => {
-  const sizeClass = {
-    small: 'px-3 py-1 text-sm',
-    medium: 'px-4 py-2 text-base',
-    large: 'px-6 py-3 text-lg',
-  }[size];
-
   return (
     <button
-      onClick={onClick}
-      className={`bg-blue-600 text-white ${sizeClass} ${shape} hover:bg-blue-700 transition`}
+      className={clsx(
+        "bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors",
+        sizeClasses[size],
+        shape,
+        className
+      )}
+      {...props}
     >
-      {label}
+      {children}
     </button>
   );
 };
