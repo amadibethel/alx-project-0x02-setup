@@ -35,3 +35,12 @@ export interface UserProps {
   avatarUrl?: string; // optional
   createdAt?: string; // optional, ISO date string
 }
+
+export interface UserProps {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  phone?: string;
+  website?: string;
+}
